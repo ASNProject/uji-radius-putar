@@ -33,7 +33,7 @@ php artisan serve --host=0.0.0.0 --port=8000
 ```
 
 #### Route
-##### VAMPS
+##### Radius
 - Post
 ```
 Route : http://127.0.0.1:8000/api/radius
