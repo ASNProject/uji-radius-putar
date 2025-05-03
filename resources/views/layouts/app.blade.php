@@ -8,7 +8,7 @@
      <!-- Bootstrap CSS -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
      <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
-     <link rel="shortcut icon" href="{{ asset('assets/1.png')}}">
+     <link rel="shortcut icon" href="{{ asset('assets/logo-2.png')}}">
      <link rel="stylesheet" href="{{ asset('css/style.css') }}">
      <title>{{ $title ?? config('app.name') }}</title>
      <style>
@@ -20,18 +20,24 @@
  </head>
  <body class="d-flex flex-column min-vh-100">
     {{-- Header Navbar --}}
-    <div class="fixed-navbar">
-        @include('partials.navbar')
-    </div>
+    @if (!in_array(Route::currentRouteName(), ['login', 'register']))
+        <div class="fixed-navbar">
+            @include('partials.navbar')
+        </div>
+    @endif
     {{-- Main Content --}}
     <div class="flex-grow-1 scrollable-content">
-        @yield('content')
+        <div>
+            @yield('content')
+        </div>
     </div>
 
     {{-- Footer --}}
-    <div class="fixed-footer">
-        @include('partials.footer')
-    </div>
+    @if (!in_array(Route::currentRouteName(), ['login', 'register']))
+        <div class="fixed-footer">
+            @include('partials.footer')
+        </div>
+    @endif
      <!-- Optional JavaScript -->
      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

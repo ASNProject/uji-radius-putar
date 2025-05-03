@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => 'Register'])
 @section('content')
-<body class="bg-white  d-flex justify-content-center align-items-center" style="height: 100vh; margin-top: -100px;">
-    <div class="d-flex justify-content-center align-items-center" style="height: 100%; width: 400px; margin-top: 200px;">
+<body class="bg-white" style="height: 100vh;">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100%; margin-top: 200px;">
         <div class="w-100" style="max-width: 400px">
             <h4 class="font-weight-bold d-flex justify-content-center">Registrasi</h4>
             <div class="d-flex justify-content-between mt-3">
