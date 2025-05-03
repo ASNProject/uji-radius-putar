@@ -23,6 +23,11 @@ DB_PASSWORD=
 composer update
 ```
 
+- Install dependency
+```
+composer require maatwebsite/excel
+```
+
 - Run server
 ```
 php artisan serve
@@ -45,4 +50,10 @@ Body:
     "radius": 90,
     "result": "Lolos"
 }
+```
+
+##### NOTE
+Export Create
+```
+php artisan make:export RadiusExport --model=Radius
 ```
