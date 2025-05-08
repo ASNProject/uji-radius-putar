@@ -60,7 +60,7 @@
 
                 $('#mode').text(mode);
                 $('#calcMode').text(calcMode);
-                $('#radius').text(radius);
+                $('#radius').text(radius + ' mm');
                 $('#result').text(result);
 
             }, 
