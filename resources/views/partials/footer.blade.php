@@ -2,9 +2,7 @@
     <div class="d-flex justify-content-between align-items-center" style="margin-left: 5px; margin-right: 5px">
         <p class="mb-0">&copy; {{ date('Y') }} Uji Radius Putar. All rights reserved.</p>
         <div class="d-flex gap-2 ms-auto">
-            <img src="{{ asset('assets/kai.png')}}" alt="Logo" style="height: 30px; margin-right: 15px;">
-            <img src="{{ asset('assets/logo ppi.png')}}" alt="Logo" style="height: 40px; margin-right: 10px; margin-top: -5px;">
-            <img src="{{ asset('assets/1.png')}}" alt="Logo" style="height: 50px; margin-top: -8px;">
+            <img src="{{ asset('assets/logo pktj.png')}}" alt="Logo" style="height: 30px; margin-right: 15px;">
         </div>
     </div>
 </footer>
