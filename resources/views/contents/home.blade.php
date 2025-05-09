@@ -75,44 +75,57 @@
   </script>
 
   {{-- Script Chart --}}
-  <script>
-    // Fetch data dari API
-    fetch('/api/radius/chart')
-    .then(response => response.json())
-    .then(response => {
-        const data = response.data; // ✅ Akses array-nya
+<script>
+  let myChart;
 
+  function updateChart() {
+    fetch('/api/radius/chart')
+      .then(response => response.json())
+      .then(response => {
+        const data = response.data;
         const labels = data.map(item => item.timestamp);
         const radiusData = data.map(item => item.radius);
 
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
+        if (myChart) {
+          // Perbarui data
+          myChart.data.labels = labels;
+          myChart.data.datasets[0].data = radiusData;
+          myChart.update();
+        } else {
+          // Buat chart pertama kali
+          const ctx = document.getElementById('myChart').getContext('2d');
+          myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'Radius',
-                        data: radiusData,
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 2,
-                        fill: false
-                    },
-                ]
+              labels: labels,
+              datasets: [
+                {
+                  label: 'Radius',
+                  data: radiusData,
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  borderWidth: 2,
+                  fill: false
+                },
+              ]
             },
             options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+              responsive: true,
+              scales: {
+                y: {
+                  beginAtZero: true
                 }
+              }
             }
-        });
-    })
-    .catch(error => console.error('Error:', error));
+          });
+        }
+      })
+      .catch(error => console.error('Error:', error));
+  }
 
-
+  // Jalankan sekali saat awal dan update tiap 1 detik
+  updateChart();
+  setInterval(updateChart, 1000);
 </script>
+
 </main>
 @endsection
